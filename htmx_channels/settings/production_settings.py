@@ -8,13 +8,13 @@ SECRET_KEY = get_env_variable("SECRET_KEY", "XXXX")
 
 ALLOWED_HOSTS.append("*")
 
-INSTALLED_APPS.insert(5, "whitenoise.runserver_nostatic")
+# INSTALLED_APPS.insert(5, "whitenoise.runserver_nostatic")
 # INSTALLED_APPS += [
 #     "cloudinary_storage",
 #     "cloudinary",
 # ]
 
-MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
+# MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 DATABASES["default"] = dj_database_url.parse(
     get_env_variable(
