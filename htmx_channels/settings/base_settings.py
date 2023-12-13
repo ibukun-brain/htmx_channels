@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
  
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -74,6 +74,14 @@ TEMPLATES = [
 # WSGI_APPLICATION = 'htmx_channels.wsgi.application'
 
 ASGI_APPLICATION = 'htmx_channels.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -139,3 +147,5 @@ STATIC_ROOT = BASE_DIR / "static_root"
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = get_env_variable("MEDIA_ROOT", BASE_DIR / "media")
+
+LOGIN_REDIRECT_URL = "index"

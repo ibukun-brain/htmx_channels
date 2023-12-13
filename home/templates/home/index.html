@@ -10,3 +10,22 @@
 </div>
 {% endblock %}
 
+{% block script %}
+<script>
+    let notificationBadge = document.querySelector("#notification-count")
+    const clearBtn = document.querySelector("#clear-btn")
+    const notifications = document.querySelectorAll(".notification-message")
+    document.body.addEventListener("htmx:wsAfterMessage", (e) => {
+        const notificationCount = notificationBadge.innerHTML
+        if (!notificationCount) {
+            notificationBadge.innerHTML = 1
+        } else (
+            notificationBadge.innerHTML = parseInt(notificationCount) + 1
+        )
+    })
+    clearBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        notifications.forEach(notification => notification.remove())
+    })
+</script>
+{% endblock script %}
