@@ -67,9 +67,9 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'htmx_channels.wsgi.application'
+WSGI_APPLICATION = 'htmx_channels.wsgi.application'
 
-ASGI_APPLICATION = 'htmx_channels.asgi.application'
+# ASGI_APPLICATION = 'htmx_channels.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
