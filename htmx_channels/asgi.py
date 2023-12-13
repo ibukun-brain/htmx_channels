@@ -19,4 +19,4 @@ application = ProtocolTypeRouter({
     # Just HTTP for now. (We can add other protocols later.)
 })
 
-app = application
+app = django_asgi_app
