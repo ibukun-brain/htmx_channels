@@ -2,7 +2,7 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "htmx_channels/wsgi.py",
+			"src": "htmx_channels/asgi.py",
 			"use": "@vercel/python",
 			"config": { "maxLambdaSize": "15mb", "runtime": "python3.9.10" }
 		},
@@ -21,7 +21,7 @@
 		},
 		{
 			"src": "/(.*)",
-			"dest": "htmx_channels/wsgi.py"
+			"dest": "htmx_channels/asgi.py"
 		}
 	]
 }
