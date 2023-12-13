@@ -11,6 +11,15 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'htmx_channels.settings')
+from htmx_channels.settings import base_settings
+
+if base_settings.DEBUG:
+    os.environ.setdefault(
+        "DJANGO_SETTINGS_MODULE", "htmx_channels.settings.development_settings"
+    )
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "htmx_channels.settings.production_settings")
 
 application = get_wsgi_application()
+
+app = application
